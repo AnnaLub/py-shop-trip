@@ -4,16 +4,15 @@ import app.data_file
 
 def shop_trip() -> None:
     # write your code here
-    list_customers = [Customer(i["name"],
-                               i["location"],
-                               i["product_cart"],
-                               i["money"],
-                               Car(i["car"]["brand"],
-                                   i["car"]["fuel_consumption"]))
-                      for i in app.data_file.customers]
+    list_customers = [Customer(customer["name"],
+                               customer["location"],
+                               customer["product_cart"],
+                               customer["money"],
+                               Car(**customer["car"]))
+                      for customer in app.data_file.customers]
 
-    list_shops = [Shop(i["name"], i["location"], i["products"])
-                  for i in app.data_file.shops]
+    list_shops = [Shop(shop["name"], shop["location"], shop["products"])
+                  for shop in app.data_file.shops]
 
     for customer in list_customers:
         print(f"{customer.name} has {customer.money} dollars")

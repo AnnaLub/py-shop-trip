@@ -41,8 +41,8 @@ class Customer:
         self.location = best_shop.location
         date_parches = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
-        print(f"Date: {date_parches}")
-        print(f"Thanks, {self.name}, for your purchase!\nYou have bought:")
+        print(f"Date: {date_parches}\n"
+              f"Thanks, {self.name}, for your purchase!\nYou have bought:")
         amount = 0
         for product, value in self.product_cart.items():
             price = value * best_shop.products[product]
